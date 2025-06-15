@@ -2,11 +2,11 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
-# Danh sách các câu cần dictation với thời gian bắt đầu
+
 sentences = [
-    {"text": "It snowed all day today.", "audio": "/static/audio/sentence_1.mp3"},  # Câu 1 bắt đầu từ giây 0
-    {"text": "The snow is beautiful.", "audio": "/static/audio/sentence_2.mp3"},  # Câu 2 bắt đầu từ giây 10
-    {"text": "The snow finally stopped.", "audio": "/static/audio/sentence_3.mp3"}  # Câu 3 bắt đầu từ giây 20
+    {"text": "It snowed all day today.", "audio": "/static/audio/sentence_1.mp3"},  
+    {"text": "The snow is beautiful.", "audio": "/static/audio/sentence_2.mp3"},  
+    {"text": "The snow finally stopped.", "audio": "/static/audio/sentence_3.mp3"}  
 ]
 sentences_conversation = [
     {"text": "Hello, Jack. This is Dave.","audio": "/static/audio/conversation_1.mp3"},
@@ -21,19 +21,18 @@ sentences_shortstories = [
 
 @app.route('/')
 def home():
-    return render_template('index.html')  # Trang chủ chỉ hiển thị nền trắng
+    return render_template('index.html')  
 
 @app.route('/news')
 def news():
-    return render_template('news.html')  # Trang News hiển thị bài dictation
-
+    return render_template('news.html')  
 @app.route('/conversation')
 def conversation():
-    return render_template('conversation.html')  # Trang News hiển thị bài dictation
+    return render_template('conversation.html') 
 
 @app.route('/short-stories')
 def shortstories():
-    return render_template('shortstories.html')  # Trang News hiển thị bài dictation
+    return render_template('shortstories.html') 
 
 @app.route('/get_sentence', methods=['GET'])
 def get_sentence():
